@@ -1,0 +1,40 @@
+/*Global Settings*/
+* {
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+#score button {
+    margin-top: 20px;
+    margin-left: 25px;
+    background: none!important;
+    border: none;
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+#timer {
+    margin-top: 20px;
+    margin-right:60px;
+}
+
+.Intro {
+    text-align: center;
+    margin-top: 10%;
+    font-weight: bold;
+}
+
+#start-btn {
+    font-size: 20px;
+    background-color: purple;
+    color: white;
+    padding: 10px;
+}
