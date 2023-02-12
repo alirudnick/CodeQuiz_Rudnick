@@ -4,47 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Code Quiz</title>
+    <title>Cycling Quiz</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
 
 <body>
-    <header id="header">
-        <section id="score">
-            <button>View Highscores</button>
-        </section>
-
-        <section id="timer">
-            Timer:
-        </section>
-    </header>
-    <main>
-    <!--Landing Page-->
-        <section class="Intro">
-            <h1>Take this quiz to test your indoor cycling knowledge!</h1>
-            <br>
-            <button id="start-btn">Quiz Me!</button>
-        </section>
-
-    <!--Quiz Content-->
-        <section class="questions">
-            <h2 id=questionHere></h2>
-    <!--Answers-->
-        <ul class="answers">
-            <div>
-                <button id="OptionA"></button>
-            </div>
-            <div>
-                <button id="OptionB"></button>
-            </div>
-            <div>
-                <button id="OptionC"></button>
-            </div>
-            <div>
-                <button id="Option D"></button>
-            </div>
-        </ul>
-        </section>
-</main>
-<script src="./script.js"></script>
+    <div class="container">
+        <div id="question-container" class="hide"></div>
+        <div id="question">Question</div>
+        <div id="answer-buttons" class="btn-grid">
+            <button class="btn">Answer 1</button>
+            <button class="btn">Answer 2</button>
+            <button class="btn">Answer 3</button>
+            <button class="btn">Answer 4</button>
+        </div>
+        <div class="controls">
+            <button id="start-btn" class="start-btn btn">Start</button>
+            <button id="next-btn" class="next-btn btn hide">Next</button>
+        </div>
+    </div>
+    <script src="./script.js"></script>
 </body> 
+</html>
