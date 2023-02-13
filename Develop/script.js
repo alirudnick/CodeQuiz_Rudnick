@@ -24,6 +24,7 @@ const answer1 = document.querySelector("#answer1");
 const answer2 = document.querySelector("#answer2");
 const answer3 = document.querySelector("#answer3");
 const answer4 = document.querySelector("#answer4");
+
 const submitScoreBtn = document.querySelector("#submit-score");
 const goBackBtn = document.querySelector("#goback");
 const clearScoreBtn = document.querySelector("#clearscores");
@@ -95,8 +96,6 @@ function setTime() {
     }, 1000);
 }
 
-
-
 function checkAnswer(event) {
     event.preventDefault();
 
@@ -104,7 +103,6 @@ function checkAnswer(event) {
     let p = document.createElement("p");
     finalScoreEl.appendChild(p);
 
-    // time out after 1 second
     setTimeout(function () {
         p.style.display = 'none';
     }, 1000);
@@ -166,7 +164,6 @@ function clearScores() {
     localStorage.clear();
     scoreListEl.innerHTML="";
 }
-
 
 startBtn.addEventListener("click", startQuiz);
 
