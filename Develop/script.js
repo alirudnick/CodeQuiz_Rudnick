@@ -25,29 +25,35 @@ const answer2 = document.querySelector("#answer2");
 const answer3 = document.querySelector("#answer3");
 const answer4 = document.querySelector("#answer4");
 
-const submitScoreBtn = document.querySelector("#submit-score");
+const submitScrBtn = document.querySelector("#submit-score");
 const goBackBtn = document.querySelector("#goback");
-const clearScoreBtn = document.querySelector("#clearscores");
-const viewScoreBtn = document.querySelector("#view-scores");
+const clearScrBtn = document.querySelector("#clearscores");
+const viewScrBtn = document.querySelector("#view-scores");
 
-function startQuiz() {
-    introEl.style.display = "none";
-    questionsEl.style.display = "block";
-    questionCount = 0;
+function checkAnswer(event) {
+    event.preventDefault();
 
-    setTime();
+    finalScoreEl.style.display = "block";
+    let p = document.createElement("p");
+    finalScoreEl.appendChild(p);
+
+    setTimeout(function () {
+        p.style.display = 'none';
+    }, 1000);
+
+    if (questions[questionCount].correctAnswer === event.target.value) {
+        p.textContent = "Correct";
+    } else if (questions[questionCount].correctAnswer !== event.target.value) {
+        secondsLeft = secondsLeft - 10;
+        p.textContent = "Wrong!";
+    }
+
+    if (questionCount < questions.length) {
+        questionCount++;
+    }
     setQuestion(questionCount);
 }
 
-function setQuestion(id) {
-    if (id < questions.length) {
-        questionEl.textContent = questions[id].question;
-        answer1.textContent = questions[id].answers[0];
-        answer2.textContent = questions[id].answers[1];
-        answer3.textContent = questions[id].answers[2];
-        answer4.textContent = questions[id].answers[3];
-    }
-}
 
 const questions = [ 
     {
@@ -96,29 +102,25 @@ function setTime() {
     }, 1000);
 }
 
-function checkAnswer(event) {
-    event.preventDefault();
+function startQuiz() {
+    introEl.style.display = "none";
+    questionsEl.style.display = "block";
+    questionCount = 0;
 
-    finalScoreEl.style.display = "block";
-    let p = document.createElement("p");
-    finalScoreEl.appendChild(p);
-
-    setTimeout(function () {
-        p.style.display = 'none';
-    }, 1000);
-
-    if (questions[questionCount].correctAnswer === event.target.value) {
-        p.textContent = "Correct";
-    } else if (questions[questionCount].correctAnswer !== event.target.value) {
-        secondsLeft = secondsLeft - 10;
-        p.textContent = "Wrong!";
-    }
-
-    if (questionCount < questions.length) {
-        questionCount++;
-    }
+    setTime();
     setQuestion(questionCount);
 }
+
+function setQuestion(id) {
+    if (id < questions.length) {
+        questionEl.textContent = questions[id].question;
+        answer1.textContent = questions[id].answers[0];
+        answer2.textContent = questions[id].answers[1];
+        answer3.textContent = questions[id].answers[2];
+        answer4.textContent = questions[id].answers[3];
+    }
+}
+
 
 function addScore(event) {
     event.preventDefault();
@@ -171,7 +173,7 @@ ansBtn.forEach(item => {
     item.addEventListener('click', checkAnswer);
 });
 
-submitScoreBtn.addEventListener("click", addScore);
+submitScrBtn.addEventListener("click", addScore);
 
 goBackBtn.addEventListener("click", function () {
     highscoresEl.style.display = "none";
@@ -180,9 +182,9 @@ goBackBtn.addEventListener("click", function () {
     timeEl.textContent = `Time:${secondsLeft}s`;
 });
 
-clearScoreBtn.addEventListener("click", clearScores);
+clearScrBtn.addEventListener("click", clearScores);
 
-viewScoreBtn.addEventListener("click", function () {
+viewSceBtn.addEventListener("click", function () {
     if (highscoresEl.style.display === "none") {
         highscoresEl.style.display = "block";
     } else if (highscoresEl.style.display === "block") {
